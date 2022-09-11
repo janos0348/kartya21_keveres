@@ -10,8 +10,10 @@ public class main {
     static String[] figurak = {"A", "K", "Q", "J", "10", "9"};
     static String[] pakli = new String[21];
     static int random;
+
     public static void main(String[] args) {
         feltolt();
+        kiir();
     }
 
     private static void feltolt() {
@@ -26,3 +28,16 @@ public class main {
             }
 
         }
+    }
+
+    private static void kiir() {
+        int count = 0;
+        for (String string :pakli) {
+            System.out.print(string + " ");
+            count++;
+            if (count%7 == 0){
+                System.out.println("");
+            }
+        }
+    }
+}
