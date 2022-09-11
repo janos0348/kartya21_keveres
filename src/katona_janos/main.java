@@ -6,12 +6,13 @@ package katona_janos;
 
 public class main {
 
-    static String[] szinek = {"zőld", "piros", "makk", "tök"};
+    static String[] szinek = {"zold", "piros", "makk", "tok"};
     static String[] figurak = {"A", "K", "Q", "J", "10", "9"};
     static String[] pakli = new String[21];
     static int random;
 
     public static void main(String[] args) {
+        System.out.println(pakli.length);
         feltolt();
         kiir();
     }
@@ -20,10 +21,10 @@ public class main {
         for (String kartya : figurak) {
             for (int i = 0; i < 4; i++) {
                 do {
-                    random = (int) (Math.random() * (21 - 1) + 1);
-                } while (!(pakli[random] == null));
-
-                pakli[random] = "+";
+                    random = (int) (Math.random() * (20 - 0) + 0);
+                } while (!(pakli[random] == null) && !(pakliTele()));
+                
+                pakli[random] = (kartya + " " +szinek[i]);
                 System.out.println(kartya);
             }
 
@@ -39,5 +40,13 @@ public class main {
                 System.out.println("");
             }
         }
+    }
+
+    private static boolean pakliTele() {
+        int i = 0;
+        while(i<pakli.length && (pakli[i] != null)){
+            i++;
+        }
+            return i == pakli.length-1;
     }
 }
